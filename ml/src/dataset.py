@@ -6,6 +6,7 @@ import uuid
 from pathlib import Path
 
 from services.common.storage import SAMPLE_DIR, write_jsonl
+from ml.src.config import DATASET_SCALE_TIERS, DEFAULT_DATASET_TIER
 
 
 LABELS = ("empty", "low", "full", "blocked")
@@ -59,13 +60,14 @@ def generate_dataset(output: Path, rows: int, seed: int = 42) -> list[dict]:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path, default=SAMPLE_DIR / "rack_inspection_dataset.jsonl")
-    parser.add_argument("--rows", type=int, default=250)
+    parser.add_argument("--rows", type=int, default=None)
+    parser.add_argument("--tier", choices=DATASET_SCALE_TIERS.keys(), default=DEFAULT_DATASET_TIER)
     parser.add_argument("--seed", type=int, default=42)
     args = parser.parse_args()
-    rows = generate_dataset(args.output, args.rows, args.seed)
+    row_count = args.rows if args.rows is not None else DATASET_SCALE_TIERS[args.tier]
+    rows = generate_dataset(args.output, row_count, args.seed)
     print(f"generated {len(rows)} records at {args.output}")
 
 
 if __name__ == "__main__":
     main()
-

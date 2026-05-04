@@ -20,6 +20,27 @@ python scripts\smoke_test.py
 python scripts\run_local_pipeline.py
 ```
 
+The default local pipeline now uses a 100k labeled MVP dataset scale:
+
+```text
+dataset_records: 100000
+target_accuracy: 0.98
+test_accuracy: 1.0 on the synthetic starter dataset
+target_met: True
+```
+
+Dataset tiers are defined in `ml/src/config.py`:
+
+```text
+demo: 250
+mvp: 10000
+mvp_100k: 100000
+production: 200000
+enterprise: 500000
+```
+
+The `1.0` test score is only for the synthetic starter data. For real warehouse images, the model must be validated on held-out labeled images from the pilot zone before claiming production accuracy.
+
 Install API dependencies when you want to run the FastAPI services:
 
 ```powershell

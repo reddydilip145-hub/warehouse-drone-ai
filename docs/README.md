@@ -22,6 +22,20 @@ This documentation package defines the warehouse automation plan for a grocery w
 | Helm | `infra/helm/warehouse-drone-ai` | Kubernetes deployment templates |
 | Local scripts | `scripts` | Smoke test and local Phase 0-1-2 pipeline |
 
+## Dataset Scale Targets
+
+| Tier | Labeled Records | Purpose |
+| --- | ---: | --- |
+| Demo | 250 | Fast local checks |
+| MVP pilot | 10,000 | First serious pilot baseline |
+| MVP 100k | 100,000 | Preferred larger labeled pilot dataset |
+| Production-grade | 200,000+ | Stable production model development |
+| C&S-scale enterprise | 500,000+ | Multi-warehouse continuous model improvement |
+
+Current default pipeline tier: MVP 100k with 100,000 synthetic labeled records.
+
+Target model accuracy: 0.98 on held-out validation/test data.
+
 ## Recommended Execution Order
 
 1. Complete Phase 0 discovery and sign-offs.

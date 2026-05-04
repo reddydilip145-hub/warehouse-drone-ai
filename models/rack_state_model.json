@@ -1,32 +1,32 @@
 {
   "centroids": {
     "blocked": {
-      "barcode_visible_feature": 0.7692307692307693,
+      "barcode_visible_feature": 0.8480409459936463,
       "blocked_feature": 1.0,
-      "brightness_feature": 0.6439615384615386,
-      "edge_density_feature": 0.3211538461538461,
-      "fill_percentage_feature": 28.41653846153846
+      "brightness_feature": 0.6450979527003181,
+      "edge_density_feature": 0.303875926579596,
+      "fill_percentage_feature": 29.136830215319417
     },
     "empty": {
-      "barcode_visible_feature": 0.8426966292134831,
+      "barcode_visible_feature": 0.8481837298478538,
       "blocked_feature": 0.0,
-      "brightness_feature": 0.6659213483146067,
-      "edge_density_feature": 0.03817977528089885,
-      "fill_percentage_feature": 0.4174157303370786
+      "brightness_feature": 0.6509551808023788,
+      "edge_density_feature": 0.03706687832432698,
+      "fill_percentage_feature": 0.33029480888962237
     },
     "full": {
-      "barcode_visible_feature": 0.8787878787878788,
+      "barcode_visible_feature": 0.8504681647940074,
       "blocked_feature": 0.0,
-      "brightness_feature": 0.6494090909090908,
-      "edge_density_feature": 0.651121212121212,
-      "fill_percentage_feature": 64.53227272727275
+      "brightness_feature": 0.6497792602996266,
+      "edge_density_feature": 0.6721957397003784,
+      "fill_percentage_feature": 67.40170224719063
     },
     "low": {
-      "barcode_visible_feature": 0.9130434782608695,
+      "barcode_visible_feature": 0.848779445542439,
       "blocked_feature": 0.0,
-      "brightness_feature": 0.6621449275362317,
-      "edge_density_feature": 0.21981159420289856,
-      "fill_percentage_feature": 20.98927536231884
+      "brightness_feature": 0.649350248384172,
+      "edge_density_feature": 0.19582671865819606,
+      "fill_percentage_feature": 19.508982960312025
     }
   },
   "features": [
@@ -37,14 +37,39 @@
     "blocked_feature"
   ],
   "metrics": {
-    "accuracy": 1.0,
-    "label_distribution": {
-      "blocked": 26,
-      "empty": 89,
-      "full": 66,
-      "low": 69
+    "dataset_records": 100000,
+    "target_accuracy": 0.98,
+    "target_met": true,
+    "test": {
+      "accuracy": 1.0,
+      "label_distribution": {
+        "blocked": 1192,
+        "empty": 5073,
+        "full": 4600,
+        "low": 4135
+      },
+      "records": 15000
     },
-    "training_records": 250
+    "train": {
+      "accuracy": 0.9999,
+      "label_distribution": {
+        "blocked": 5666,
+        "empty": 24253,
+        "full": 21360,
+        "low": 18721
+      },
+      "records": 70000
+    },
+    "validation": {
+      "accuracy": 0.9999,
+      "label_distribution": {
+        "blocked": 1167,
+        "empty": 5113,
+        "full": 4617,
+        "low": 4103
+      },
+      "records": 15000
+    }
   },
   "model_name": "rack-state-centroid-baseline",
   "model_version": "v0.1.0"

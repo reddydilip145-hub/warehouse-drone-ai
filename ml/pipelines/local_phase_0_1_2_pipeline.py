@@ -5,13 +5,14 @@ import uuid
 from pathlib import Path
 
 from ml.src.dataset import generate_dataset
+from ml.src.config import DATASET_SCALE_TIERS, DEFAULT_DATASET_TIER, TARGET_ACCURACY
 from ml.src.inference import infer_rack_state, load_model
 from ml.src.train import train_centroid_model
 from services.common.storage import ROOT, SAMPLE_DIR, ensure_runtime, read_csv, read_jsonl, write_jsonl
 from services.replenishment_api.engine import create_recommendation
 
 
-def run_pipeline() -> dict:
+def run_pipeline(dataset_tier: str = DEFAULT_DATASET_TIER) -> dict:
     runtime = ensure_runtime()
 
     # Phase 0: validate master data exists.
@@ -22,7 +23,7 @@ def run_pipeline() -> dict:
 
     # Phase 1: create dataset, train baseline, infer inspection events.
     dataset_path = SAMPLE_DIR / "rack_inspection_dataset.jsonl"
-    generate_dataset(dataset_path, rows=250)
+    generate_dataset(dataset_path, rows=DATASET_SCALE_TIERS[dataset_tier])
     model_path = ROOT / "models" / "rack_state_model.json"
     train_centroid_model(dataset_path, model_path)
     model = load_model(model_path)
@@ -67,9 +68,11 @@ def run_pipeline() -> dict:
         "inspection_events": len(events),
         "replenishment_recommendations": len(recommendations),
         "model_path": str(model_path),
+        "target_accuracy": TARGET_ACCURACY,
+        "test_accuracy": model["metrics"]["test"]["accuracy"],
+        "target_met": model["metrics"]["target_met"],
     }
 
 
 if __name__ == "__main__":
     print(json.dumps(run_pipeline(), indent=2, sort_keys=True))
-

@@ -17,7 +17,7 @@ def main() -> None:
     tmp_dir.mkdir(parents=True, exist_ok=True)
     dataset = tmp_dir / "dataset.jsonl"
     model_path = tmp_dir / "model.json"
-    rows = generate_dataset(dataset, rows=30, seed=11)
+    rows = generate_dataset(dataset, rows=100, seed=11)
     model = train_centroid_model(dataset, model_path)
     prediction = infer_rack_state(model, rows[0])
     assert prediction["fill_state"] in {"empty", "low", "full", "blocked"}
@@ -41,4 +41,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
