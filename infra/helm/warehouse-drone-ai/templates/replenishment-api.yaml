@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: replenishment-api
+  labels:
+    app: replenishment-api
+spec:
+  replicas: {{ .Values.replenishmentApi.replicas }}
+  selector:
+    matchLabels:
+      app: replenishment-api
+  template:
+    metadata:
+      labels:
+        app: replenishment-api
+    spec:
+      containers:
+        - name: replenishment-api
+          image: "{{ .Values.image.registry }}/{{ .Values.replenishmentApi.image }}:{{ .Values.replenishmentApi.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.replenishmentApi.port }}
+          env:
+            - name: APP_ENV
+              value: "{{ .Values.env.environment }}"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: replenishment-api
+spec:
+  selector:
+    app: replenishment-api
+  ports:
+    - name: http
+      port: 80
+      targetPort: {{ .Values.replenishmentApi.port }}
+

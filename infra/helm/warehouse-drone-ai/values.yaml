@@ -1,0 +1,19 @@
+image:
+  registry: ghcr.io/reddydilip145-hub/warehouse-drone-ai
+  pullPolicy: IfNotPresent
+
+inspectionApi:
+  image: inspection-api
+  tag: latest
+  replicas: 1
+  port: 8000
+
+replenishmentApi:
+  image: replenishment-api
+  tag: latest
+  replicas: 1
+  port: 8001
+
+env:
+  environment: pilot
+

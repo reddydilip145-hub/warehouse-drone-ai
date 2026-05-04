@@ -1,0 +1,7 @@
+location_id,facility_id,zone_id,aisle_id,rack_id,bay_id,shelf_level,bin_id,coordinate_x,coordinate_y,coordinate_z,flight_allowed,inspection_required,active
+A01-R01-B01-L01,cs-facility-001,dry-zone-a,A01,R01,B01,L01,BIN-001,1.0,1.0,1.2,true,true,true
+A01-R01-B02-L01,cs-facility-001,dry-zone-a,A01,R01,B02,L01,BIN-002,2.0,1.0,1.2,true,true,true
+A01-R02-B01-L02,cs-facility-001,dry-zone-a,A01,R02,B01,L02,BIN-003,1.0,2.0,2.4,true,true,true
+A02-R01-B01-L01,cs-facility-001,dry-zone-a,A02,R01,B01,L01,BIN-004,1.0,4.0,1.2,true,true,true
+A02-R02-B02-L03,cs-facility-001,dry-zone-a,A02,R02,B02,L03,BIN-005,2.0,5.0,3.6,true,true,true
+

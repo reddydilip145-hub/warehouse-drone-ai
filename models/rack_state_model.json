@@ -1,0 +1,51 @@
+{
+  "centroids": {
+    "blocked": {
+      "barcode_visible_feature": 0.7692307692307693,
+      "blocked_feature": 1.0,
+      "brightness_feature": 0.6439615384615386,
+      "edge_density_feature": 0.3211538461538461,
+      "fill_percentage_feature": 28.41653846153846
+    },
+    "empty": {
+      "barcode_visible_feature": 0.8426966292134831,
+      "blocked_feature": 0.0,
+      "brightness_feature": 0.6659213483146067,
+      "edge_density_feature": 0.03817977528089885,
+      "fill_percentage_feature": 0.4174157303370786
+    },
+    "full": {
+      "barcode_visible_feature": 0.8787878787878788,
+      "blocked_feature": 0.0,
+      "brightness_feature": 0.6494090909090908,
+      "edge_density_feature": 0.651121212121212,
+      "fill_percentage_feature": 64.53227272727275
+    },
+    "low": {
+      "barcode_visible_feature": 0.9130434782608695,
+      "blocked_feature": 0.0,
+      "brightness_feature": 0.6621449275362317,
+      "edge_density_feature": 0.21981159420289856,
+      "fill_percentage_feature": 20.98927536231884
+    }
+  },
+  "features": [
+    "fill_percentage_feature",
+    "brightness_feature",
+    "edge_density_feature",
+    "barcode_visible_feature",
+    "blocked_feature"
+  ],
+  "metrics": {
+    "accuracy": 1.0,
+    "label_distribution": {
+      "blocked": 26,
+      "empty": 89,
+      "full": 66,
+      "low": 69
+    },
+    "training_records": 250
+  },
+  "model_name": "rack-state-centroid-baseline",
+  "model_version": "v0.1.0"
+}

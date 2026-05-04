@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inspection-api
+  labels:
+    app: inspection-api
+spec:
+  replicas: {{ .Values.inspectionApi.replicas }}
+  selector:
+    matchLabels:
+      app: inspection-api
+  template:
+    metadata:
+      labels:
+        app: inspection-api
+    spec:
+      containers:
+        - name: inspection-api
+          image: "{{ .Values.image.registry }}/{{ .Values.inspectionApi.image }}:{{ .Values.inspectionApi.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.inspectionApi.port }}
+          env:
+            - name: APP_ENV
+              value: "{{ .Values.env.environment }}"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: inspection-api
+spec:
+  selector:
+    app: inspection-api
+  ports:
+    - name: http
+      port: 80
+      targetPort: {{ .Values.inspectionApi.port }}
+

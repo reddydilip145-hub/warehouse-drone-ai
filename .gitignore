@@ -8,4 +8,8 @@ Thumbs.db
 .env
 .env.*
 *.log
+__pycache__/
+*.py[cod]
 
+# Generated runtime outputs
+data/runtime/

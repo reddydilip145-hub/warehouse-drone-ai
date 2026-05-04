@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: warehouse-drone-ai-config
+data:
+  ENVIRONMENT: "{{ .Values.env.environment }}"
+  PHASES_ENABLED: "phase0,phase1,phase2"
+

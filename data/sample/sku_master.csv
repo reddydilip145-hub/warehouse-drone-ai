@@ -1,0 +1,7 @@
+sku_id,upc,description,category,handling_class,case_weight,max_capacity,case_pack
+SKU-10001,000111000001,Cereal Family Pack,dry_grocery,standard_case,7.5,24,12
+SKU-10002,000111000002,Pasta Case,dry_grocery,standard_case,9.0,36,12
+SKU-10003,000111000003,Snack Variety Case,dry_grocery,fragile,4.5,30,10
+SKU-10004,000111000004,Bottled Sauce Case,dry_grocery,liquid,14.0,20,10
+SKU-10005,000111000005,Rice Bag Case,dry_grocery,heavy,22.0,18,6
+
