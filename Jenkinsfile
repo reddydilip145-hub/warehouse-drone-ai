@@ -7,6 +7,9 @@ pipeline {
     GKE_ZONE = 'asia-south1-a'
     K8S_NAMESPACE = 'warehouse-drone-ai'
     HELM_RELEASE = 'warehouse-drone-ai'
+    PYTHON_EXE = 'C:\\Program Files (x86)\\Google\\Cloud SDK\\google-cloud-sdk\\platform\\bundledpython\\python.exe'
+    GCLOUD = 'C:\\Program Files (x86)\\Google\\Cloud SDK\\google-cloud-sdk\\bin\\gcloud.cmd'
+    PATH = 'C:\\Program Files (x86)\\Google\\Cloud SDK\\google-cloud-sdk\\bin;C:\\Program Files\\Docker\\Docker\\resources\\bin;C:\\Windows\\System32;C:\\Windows;C:\\Windows\\System32\\WindowsPowerShell\\v1.0'
   }
 
   stages {
@@ -18,22 +21,22 @@ pipeline {
 
     stage('Smoke Test') {
       steps {
-        bat 'python scripts\\smoke_test.py'
+        bat '"%PYTHON_EXE%" scripts\\smoke_test.py'
       }
     }
 
     stage('GKE Context') {
       steps {
-        bat 'gcloud config set project %GCP_PROJECT%'
-        bat 'gcloud container clusters get-credentials %GKE_CLUSTER% --zone %GKE_ZONE% --project %GCP_PROJECT%'
+        bat '"%GCLOUD%" config set project %GCP_PROJECT%'
+        bat '"%GCLOUD%" container clusters get-credentials %GKE_CLUSTER% --zone %GKE_ZONE% --project %GCP_PROJECT%'
         bat 'kubectl get nodes'
       }
     }
 
     stage('Build Images') {
       steps {
-        bat 'gcloud builds submit --config infra\\cloudbuild\\inspection-api.yaml .'
-        bat 'gcloud builds submit --config infra\\cloudbuild\\replenishment-api.yaml .'
+        bat '"%GCLOUD%" builds submit --config infra\\cloudbuild\\inspection-api.yaml .'
+        bat '"%GCLOUD%" builds submit --config infra\\cloudbuild\\replenishment-api.yaml .'
       }
     }
 
@@ -59,4 +62,3 @@ pipeline {
     }
   }
 }
-
