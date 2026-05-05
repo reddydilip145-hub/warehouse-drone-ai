@@ -56,6 +56,10 @@ flowchart LR
   train -.runs on.-> gke
 ```
 
+## GKE Runtime Snapshot
+
+![GKE cluster and node pools](docs/assets/gke-cluster-node-pools.png)
+
 ## Code Included
 
 - Phase 0 sample master data under `data/sample`.
