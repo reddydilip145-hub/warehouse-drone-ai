@@ -58,6 +58,8 @@ flowchart LR
 
 ## GKE Runtime Snapshot
 
+![GKE console cluster details](docs/assets/gke-console-gui-screenshot.png)
+
 ![GKE cluster and node pools](docs/assets/gke-cluster-node-pools.png)
 
 ## Code Included
