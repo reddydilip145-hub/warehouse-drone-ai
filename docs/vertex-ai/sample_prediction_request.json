@@ -1,0 +1,18 @@
+{
+  "instances": [
+    {
+      "fill_percentage_feature": 0,
+      "brightness_feature": 0.31,
+      "edge_density_feature": 0.22,
+      "barcode_visible_feature": 1,
+      "blocked_feature": 0
+    },
+    {
+      "fill_percentage_feature": 82,
+      "brightness_feature": 0.73,
+      "edge_density_feature": 0.65,
+      "barcode_visible_feature": 1,
+      "blocked_feature": 0
+    }
+  ]
+}

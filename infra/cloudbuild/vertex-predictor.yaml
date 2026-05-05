@@ -1,0 +1,11 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - -f
+      - services/vertex_predictor/Dockerfile
+      - -t
+      - asia-south1-docker.pkg.dev/model-journal-431911-h3/warehouse-drone-ai/vertex-rack-predictor:latest
+      - .
+images:
+  - asia-south1-docker.pkg.dev/model-journal-431911-h3/warehouse-drone-ai/vertex-rack-predictor:latest

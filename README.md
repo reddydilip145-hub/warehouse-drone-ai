@@ -19,7 +19,9 @@ flowchart LR
     droneA["Inspection drone fleet"]
     images["Rack image capture"]
     train["Kubeflow training pipeline"]
+    vertexTrain["Vertex AI managed training\nand model registry"]
     model["Rack state model\naccuracy target: 0.98"]
+    vertexEndpoint["Vertex AI prediction endpoint"]
     inspectApi["Inspection API"]
   end
 
@@ -43,7 +45,9 @@ flowchart LR
   master --> sql
   labels --> storage
   droneA --> images --> storage
-  storage --> train --> model --> inspectApi
+  storage --> train --> model
+  storage --> vertexTrain --> model --> vertexEndpoint
+  vertexEndpoint --> inspectApi
   sql --> inspectApi
   inspectApi --> decision --> taskApi --> droneB
   decision --> ops
@@ -74,6 +78,7 @@ flowchart LR
 - Helm/Kubernetes deployment chart for inspection and replenishment services.
 - Argo CD application manifest and GKE deployment guide.
 - Jenkins pipeline for CI/CD deployment.
+- Vertex AI predictor container, model registry, endpoint, and hands-on scripts.
 
 ## Run Locally
 
@@ -116,3 +121,7 @@ uvicorn services.replenishment_api.app:app --reload --port 8001
 Hands-on deployment guide:
 
 [docs/deployment/README.md](docs/deployment/README.md)
+
+Vertex AI hands-on guide:
+
+[docs/vertex-ai/README.md](docs/vertex-ai/README.md)
