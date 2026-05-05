@@ -20,7 +20,10 @@ This documentation package defines the warehouse automation plan for a grocery w
 | Replenishment service | `services/replenishment_api` | Phase 2 recommendation and approval API |
 | Terraform | `infra/terraform/gcp` | GCP buckets, Cloud SQL, and service account starter |
 | Helm | `infra/helm/warehouse-drone-ai` | Kubernetes deployment templates |
+| Argo CD | `infra/argocd` | GitOps application manifest |
 | Local scripts | `scripts` | Smoke test and local Phase 0-1-2 pipeline |
+
+Deployment guide: [deployment/README.md](deployment/README.md)
 
 ## Dataset Scale Targets
 

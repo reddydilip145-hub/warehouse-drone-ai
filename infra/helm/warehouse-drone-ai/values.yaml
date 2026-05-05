@@ -1,5 +1,5 @@
 image:
-  registry: ghcr.io/reddydilip145-hub/warehouse-drone-ai
+  registry: asia-south1-docker.pkg.dev/model-journal-431911-h3/warehouse-drone-ai
   pullPolicy: IfNotPresent
 
 inspectionApi:
@@ -16,4 +16,3 @@ replenishmentApi:
 
 env:
   environment: pilot
-

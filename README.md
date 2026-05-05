@@ -12,6 +12,7 @@ Start here: [docs/README.md](docs/README.md)
 - Local Phase 0-1-2 pipeline under `scripts/run_local_pipeline.py`.
 - Terraform starter for GCP Cloud SQL and object storage.
 - Helm/Kubernetes deployment chart for inspection and replenishment services.
+- Argo CD application manifest and GKE deployment guide.
 
 ## Run Locally
 
@@ -48,3 +49,9 @@ pip install -r requirements.txt
 uvicorn services.inspection_api.app:app --reload --port 8000
 uvicorn services.replenishment_api.app:app --reload --port 8001
 ```
+
+## Deploy
+
+Hands-on deployment guide:
+
+[docs/deployment/README.md](docs/deployment/README.md)

@@ -1,0 +1,12 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - -f
+      - services/inspection_api/Dockerfile
+      - -t
+      - asia-south1-docker.pkg.dev/model-journal-431911-h3/warehouse-drone-ai/inspection-api:latest
+      - .
+images:
+  - asia-south1-docker.pkg.dev/model-journal-431911-h3/warehouse-drone-ai/inspection-api:latest
+
