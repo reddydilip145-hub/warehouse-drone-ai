@@ -60,6 +60,8 @@ flowchart LR
 
 ![GKE console cluster details](docs/assets/gke-console-gui-screenshot.png)
 
+![GKE console node pools](docs/assets/gke-console-node-pools-screenshot.png)
+
 ![GKE cluster and node pools](docs/assets/gke-cluster-node-pools.png)
 
 ## Code Included
