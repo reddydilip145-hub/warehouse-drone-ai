@@ -5,6 +5,7 @@ pipeline {
     GCP_PROJECT = 'model-journal-431911-h3'
     GKE_CLUSTER = 'fraud-cluster'
     GKE_ZONE = 'asia-south1-a'
+    GKE_REGION = 'asia-south1'
     K8S_NAMESPACE = 'warehouse-drone-ai'
     HELM_RELEASE = 'warehouse-drone-ai'
     PYTHON_EXE = 'C:\\Program Files (x86)\\Google\\Cloud SDK\\google-cloud-sdk\\platform\\bundledpython\\python.exe'
@@ -35,8 +36,8 @@ pipeline {
 
     stage('Build Images') {
       steps {
-        bat '"%GCLOUD%" builds submit --config infra\\cloudbuild\\inspection-api.yaml .'
-        bat '"%GCLOUD%" builds submit --config infra\\cloudbuild\\replenishment-api.yaml .'
+        bat '"%GCLOUD%" builds submit --region=%GKE_REGION% --default-buckets-behavior=regional-user-owned-bucket --config infra\\cloudbuild\\inspection-api.yaml .'
+        bat '"%GCLOUD%" builds submit --region=%GKE_REGION% --default-buckets-behavior=regional-user-owned-bucket --config infra\\cloudbuild\\replenishment-api.yaml .'
       }
     }
 
