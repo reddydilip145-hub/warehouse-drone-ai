@@ -54,6 +54,29 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 kubectl apply -f infra\argocd\warehouse-drone-ai-application.yaml
 ```
 
+## Jenkins
+
+Create a Jenkins Pipeline job:
+
+```text
+Name: warehouse-drone-ai
+Definition: Pipeline script from SCM
+SCM: Git
+Repository URL: https://github.com/reddydilip145-hub/warehouse-drone-ai.git
+Branch: */main
+Script Path: Jenkinsfile
+```
+
+The Jenkinsfile runs:
+
+```text
+smoke test
+-> GKE credential setup
+-> Cloud Build image builds
+-> Helm deployment
+-> Kubernetes rollout verification
+```
+
 ## Kubeflow
 
 Kubeflow is already present. Use it for the ML DAG after service deployment is stable:

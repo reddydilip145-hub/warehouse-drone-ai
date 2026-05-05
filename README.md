@@ -13,6 +13,7 @@ Start here: [docs/README.md](docs/README.md)
 - Terraform starter for GCP Cloud SQL and object storage.
 - Helm/Kubernetes deployment chart for inspection and replenishment services.
 - Argo CD application manifest and GKE deployment guide.
+- Jenkins pipeline for CI/CD deployment.
 
 ## Run Locally
 
