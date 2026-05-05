@@ -68,6 +68,12 @@ flowchart LR
 
 ![GKE cluster and node pools](docs/assets/gke-cluster-node-pools.png)
 
+## Vertex AI Runtime Snapshot
+
+![Vertex AI model registry](docs/assets/vertex-ai-model-registry-screenshot.png)
+
+![Vertex AI endpoint](docs/assets/vertex-ai-endpoint-screenshot.png)
+
 ## Code Included
 
 - Phase 0 sample master data under `data/sample`.
